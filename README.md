@@ -1,73 +1,49 @@
-# React + TypeScript + Vite
+# Tablero de Ranking
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a ranking board application built with React, TypeScript, and Vite. It allows tracking scores for competitors, instructors, and schools in a tournament or competition setting.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The application includes the following functionalities:
 
-## React Compiler
+### 1. Rankings Display
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+The main dashboard displays three distinct ranking lists:
 
-## Expanding the ESLint configuration
+- **Mejor Escuela (Best School):** Ranks schools based on the total points accumulated by their instructors and competitors.
+- **Mejor Instructor (Best Instructor):** Ranks instructors based on the total points earned by their competitors.
+- **Mejor Competidor (Best Competitor):** Ranks individual competitors based on the points they have been awarded.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Each list is updated in real-time as new points are added.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### 2. Add Points Form
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+A dedicated form allows users to award points to competitors based on their performance:
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- **Primer lugar (First Place):** Awards 10 points.
+- **Segundo lugar (Second Place):** Awards 5 points.
+- **Tercer lugar (Third Place):** Awards 1 point.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Users can select a competitor for each of the top three positions. There is also an optional, additional third-place slot.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### 3. Automatic Score Calculation
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+When points are awarded to a competitor, the application automatically updates the scores for the associated instructor and school. This ensures that all rankings are always in sync.
+
+### 4. History Log
+
+A history log on the side of the page provides a real-time feed of the most recent points awarded. Each entry includes:
+
+- The competitor's name.
+- The number of points awarded.
+- An emoji indicating the place (🥇, 🥈, 🥉).
+- A timestamp.
+
+This provides a clear and transparent audit trail of all scoring events.
+
+## Tech Stack
+
+- **React:** For building the user interface.
+- **TypeScript:** For type safety and improved developer experience.
+- **Vite:** As the build tool and development server.
+- **Bootstrap:** For styling and layout.
