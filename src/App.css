@@ -1,0 +1,60 @@
+body {
+  background-color: #f8f9fa;
+}
+
+.school-name{
+  font-size: 1.2rem;
+  font-weight: 500;
+  flex-grow: 1;
+  text-align: right;
+  margin-right: 10px;
+
+}
+.participant-item {
+  position: absolute;
+  width: 100%;
+  height: 80px; /* Fixed height for each item */
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  background-color: white;
+  border: 1px solid #dee2e6;
+  border-radius: .375rem;
+  margin-bottom: 10px;
+  transition: transform 0.5s ease-in-out, background-color 0.3s ease;
+  will-change: transform;
+}
+
+.participant-item:hover {
+  background-color: #f1f3f5;
+}
+
+.participant-rank {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #6c757d;
+  margin-right: 20px;
+  min-width: 30px;
+  text-align: center;
+}
+
+.participant-name {
+  font-size: 1.2rem;
+  font-weight: 500;
+  flex-grow: 1;
+}
+
+.participant-points {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #0d6efd;
+}
+
+/* Add some breathing room for the absolutely positioned items */
+.card-body .position-relative {
+  min-height: 400px; /* Adjust based on expected number of participants */
+}
+
+.sticky-top {
+  top: 2rem; /* Add some offset for the sticky elements */
+}
